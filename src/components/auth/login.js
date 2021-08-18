@@ -36,17 +36,19 @@ export default class Login extends Component {
         )
         .then(response => {
             if (response.data.status === "created") {
-                console.log("You can come in...");
+                this.props.handleSuccessfulAuth();
               } else {
                 this.setState({
                   errorText: "Wrong email or password"
                 });
+                this.props.handleUnsuccessfulAuth();
               }
             })
             .catch(error => {
               this.setState({
                 errorText: "An error occurred"
               });
+              this.props.handleUnsuccessfulAuth();
         });
     
         event.preventDefault();
@@ -56,6 +58,7 @@ export default class Login extends Component {
     return (
       <div>
         <h1>LOGIN TO ACCESS YOUR DASHBOARD</h1>
+
 
         <div>{this.state.errorText}</div>
 
