@@ -16,7 +16,7 @@ export default class PortfolioForm extends Component {
       banner_image: "",
       logo: "",
       editMode: false,
-      apiUrl: "https://jordan.devcamp.space/portfolio/portfolio_items",
+      apiUrl: "https://cappy.devcamp.space/portfolio/portfolio_items",
       apiAction: "post"
     };
     this.handleChange = this.handleChange.bind(this);
@@ -72,7 +72,7 @@ export default class PortfolioForm extends Component {
         position: position || "",
         url: url || "",
         editMode: true,
-        apiUrl: `https://jordan.devcamp.space/portfolio/portfolio_items/${id}`,
+        apiUrl: `https://cappy.devcamp.space/portfolio/portfolio_items/${id}`,
         apiAction: "patch",
         thumb_image_url: thumb_image_url || "",
         banner_image_url: banner_image_url || "",
@@ -154,7 +154,7 @@ export default class PortfolioForm extends Component {
           banner_image: "",
           logo: "",
           editMode: false,
-          apiUrl: "https://jordan.devcamp.space/portfolio/portfolio_items",
+          apiUrl: "https://cappy.devcamp.space/portfolio/portfolio_items",
           apiAction: "post"
         });
         [this.thumbRef, this.bannerRef, this.logoRef].forEach(ref => {
