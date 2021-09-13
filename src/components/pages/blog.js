@@ -24,6 +24,27 @@ class Blog extends Component {
     this.handleSuccessfulNewBlogSubmission = this.handleSuccessfulNewBlogSubmission.bind(
       this
     );
+    this.handleDeleteClick = this.handleDeleteClick.bind(this);
+  }
+
+  handleDeleteClick(blog) {
+    axios
+      .delete(
+        `https://api.devcamp.space/portfolio/portfolio_blogs/${blog.id}`,
+        { withCredentials: true }
+      )
+      .then(response => {
+        this.setState({
+          blogItems: this.state.blogItems.filter(blogItem => {
+            return blog.id !== blogItem.id;
+          })
+        });
+
+        return response.data;
+      })
+      .catch(error => {
+        console.log("delete blog error", error);
+      });
   }
 
   handleSuccessfulNewBlogSubmission(blog) {
